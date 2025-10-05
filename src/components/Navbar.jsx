@@ -1,5 +1,19 @@
 import { motion } from "framer-motion";
 
+const fadeInUp = {
+  initial: { opacity: 0, y: 20},
+  animate: { opacity: 1, y: 0},
+  transition: { duration: 0.6 },
+};
+
+const staggerContainer = {
+  animate: {
+    transition: {
+      staggerChildren: 0.1,
+    },
+  },
+};
+
 
 export const Navbar = () => {
 
@@ -20,26 +34,21 @@ export const Navbar = () => {
           Portfolio
         </motion.div>
 
-        <motion.ul className="nav-links" amimate={{transition: {staggerChildren:0.1}}}>
+        <motion.ul className="nav-links" variants ={staggerContainer} initial="initial" animate="animate">
             <motion.li 
-              initial={{opacity:0, y: 20}} 
-              animate ={{opacity:1, y: 0 }}
-              transition={{duration:0.6}}
-            >
-                <a>Home</a>
+              variants={fadeInUp} 
+              whileHover={{ scale: 1.1 }} 
+              whileTap={{ scale: 0.95}}>
+                <a href="#home">Home</a>
             </motion.li>
-            <motion.li 
-              initial={{opacity:0, y: 20}} 
-              animate ={{opacity:1, y: 0 }}
-              transition={{duration:0.6}}
-            >
+            <motion.li variants={fadeInUp}
+              whileHover={{ scale: 1.1 }} 
+              whileTap={{ scale: 0.95}}>
                 <a>Projects</a>
             </motion.li>
-            <motion.li 
-              initial={{opacity:0, y: 20}} 
-              animate ={{opacity:1, y: 0 }}
-              transition={{duration:0.6}}
-            >
+            <motion.li variants={fadeInUp}
+              whileHover={{ scale: 1.1 }} 
+              whileTap={{ scale: 0.95}}>
                 <a>Contact</a>
             </motion.li>
             
