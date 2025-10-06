@@ -36,7 +36,63 @@ export const Hero = () => {
             <motion.h1 className="glitch" variants={fadeInUp} whileHover={{scale: 1.02}}>
               AbelDev
             </motion.h1>
-          </motion.div>
+            <motion.h2 className="hero-subtitle" variants={fadeInUp}>Creative developer & Designer</motion.h2>
+            <motion.p className="hero-description" variants={fadeInUp}>
+              I design and build modern, responsive websites using React, WordPress, and Tailwind CSS.
+              My focus is on creating fast, elegant, and user-friendly digital experiences.
+              From concept to deployment, I turn ideas into functional, visually stunning websites.
+            </motion.p>
+
+            <motion.div 
+              className="cta-buttons" 
+              variants={staggerContainer}
+            >
+              <motion.a 
+                href="#projects" 
+                className="cta-primary" 
+                whileHover={{ scale: 1.05}}
+                whileTap={{ scale: 0.95}}
+              > View My Work
+              </motion.a>
+
+            </motion.div>
+             <motion.div 
+              className="cta-buttons" 
+              variants={staggerContainer}
+            >
+              <motion.a 
+                href="#contacts" 
+                className="cta-secondary"
+                whileHover={{ scale: 1.05}}
+                whileTap={{ scale: 0.95}}
+              >
+                Contact Me
+              </motion.a>
+
+            </motion.div>
+
+            <motion.div 
+              className="social-links" 
+              variants={staggerContainer}
+            > 
+              <motion.a href="https://github.com" target="_blank"> 
+                <i className="fab fa-github"></i>
+              </motion.a >
+              <motion.a href="https://twitter.com" target="_blank"> 
+                <i className="fab fa-twitter"></i>
+              </motion.a>
+              <motion.a href="https://linkedin.com" target="_blank"> 
+                <i className="fab fa-linkedin"></i>
+              </motion.a>
+
+
+
+            </motion.div>
+            
+            
+            
+            
+          </motion.div>   
         </div>
       </motion.section>
     ); 
