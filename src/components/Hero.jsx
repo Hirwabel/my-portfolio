@@ -1,4 +1,5 @@
-import {motion} from 'framer-motion'
+import {motion} from "framer-motion"
+import { Prism as SyntaxHighlighter} from "react-syntax-highlighter"
 
 const fadeInUp = {
   initial: { opacity: 0, y: 20},
@@ -93,6 +94,37 @@ export const Hero = () => {
             
             
           </motion.div>   
+
+          <motion.div 
+            className="hero-image-container" 
+            initial={{opacity:0, x:50}}
+            animate={{opacity:1, x:0}}
+            transition={{duration: 0.8, delay: 0.4}}
+          >
+            <div className="code-display"> 
+              <SyntaxHighlighter>
+                {`const aboutMe: DeveloperProfile = {
+  codename: "PedroTech",
+  origin: "🌍 Somewhere between a coffee shop and a terminal",
+  role: "Fullstack Web Sorcerer",
+  stack: {
+    languages: ["JavaScript", "TypeScript", "SQL"],
+    frameworks: ["React", "Next.js", "TailwindCSS", "Supabase"],
+  },
+  traits: [
+    "pixel-perfectionist",
+    "API whisperer",
+    "dark mode advocate",
+    "terminal aesthetic enthusiast",
+  ],
+  missionStatement:
+    "Turning ideas into interfaces and bugs into feature",
+  availability: "Available for hire",
+};`}
+              </SyntaxHighlighter>
+            </div>
+
+          </motion.div>
         </div>
       </motion.section>
     ); 
