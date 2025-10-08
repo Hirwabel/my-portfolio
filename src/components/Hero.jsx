@@ -1,5 +1,6 @@
-import {motion} from "framer-motion"
+import {motion, rgba} from "framer-motion"
 import { Prism as SyntaxHighlighter} from "react-syntax-highlighter"
+import { vscDarkPlus } from "react-syntax-highlighter/dist/esm/styles/prism";
 
 const fadeInUp = {
   initial: { opacity: 0, y: 20},
@@ -102,7 +103,20 @@ export const Hero = () => {
             transition={{duration: 0.8, delay: 0.4}}
           >
             <div className="code-display"> 
-              <SyntaxHighlighter>
+              <SyntaxHighlighter 
+              language = "typescript" 
+              style={vscDarkPlus}
+              customStyle={{
+                margin: "0", 
+                padding:"2rem", 
+                height:"100%", 
+                borderRadius:"20px",
+                background:"rgba(30, 41, 59, 0.8)",
+                backdropFilter: "blur(10px)",
+                marginBottom:50,
+
+              }}
+              >
                 {`const aboutMe: DeveloperProfile = {
   codename: "PedroTech",
   origin: "🌍 Somewhere between a coffee shop and a terminal",
@@ -123,6 +137,17 @@ export const Hero = () => {
 };`}
               </SyntaxHighlighter>
             </div>
+
+            <motion.div 
+              className="floating-card" 
+              animate={{y: [0, -10, 0], rotate: [0, 2, 0]}}
+              transition={{duration: 4, repeat: Infinity, ease: "easeInOut"}}
+            >
+              <div className="card-content">
+                <span className="card-icon">💻</span>
+                <span className="card-text">Currently working on my portfolio!</span>
+              </div>
+            </motion.div>
 
           </motion.div>
         </div>
