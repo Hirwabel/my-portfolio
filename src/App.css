@@ -322,3 +322,18 @@ body{
 }
 
 
+
+/* Projects Section */
+.projects{
+  padding:6rem 5%;
+  background-color: var(--background);
+  position:relative;
+}
+
+.projects h2{
+  text-align:center;
+  font-size:2.5rem;
+  margin-bottom:3rem;
+}
+
+
