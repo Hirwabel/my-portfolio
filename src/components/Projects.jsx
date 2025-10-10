@@ -33,7 +33,7 @@ export const Projects = () => {
           viewport={{once: true}}
         > 
           My projects
-
+        </motion.h2>
           <motion.div 
             className="project-grid"
             variants={staggerContainer}
@@ -48,7 +48,7 @@ export const Projects = () => {
             >
                 <motion.div 
                 className="project-image" 
-                style={{backgroundImage:"url('/projects/ai-saas.png')"}}
+                style={{backgroundImage:"url('../public/ai-saas.png')"}}
                 whileHover={{ scale: 1.05, transition: { duration: 0.2}}}
                 >
 
@@ -76,11 +76,11 @@ export const Projects = () => {
             >
                 <motion.div 
                 className="project-image" 
-                style={{backgroundImage:"url('/projects/ai-saas.png')"}}
+                style={{backgroundImage:"url('../public/social-media.png')"}}
                 whileHover={{ scale: 1.05, transition: { duration: 0.2}}}
-                >
+                />
 
-                </motion.div>
+                
                 <motion.div>
                     <h3>Social Media Dashboard</h3>
                     <p>
@@ -104,7 +104,7 @@ export const Projects = () => {
             >
                 <motion.div 
                 className="project-image" 
-                style={{backgroundImage:"url('/projects/ai-saas.png')"}}
+                style={{backgroundImage:"url('../public/stopwatch.png')"}}
                 whileHover={{ scale: 1.05, transition: { duration: 0.2}}}
                 >
 
@@ -128,7 +128,7 @@ export const Projects = () => {
 
 
           </motion.div>
-        </motion.h2>
+        
 
       </motion.section>
     );  
