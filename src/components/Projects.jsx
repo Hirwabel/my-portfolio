@@ -48,7 +48,7 @@ export const Projects = () => {
             >
                 <motion.div 
                 className="project-image" 
-                style={{backgroundImage:"url('../public/ai-saas.png')"}}
+                style={{backgroundImage:"url('../ai-saas.png')"}}
                 whileHover={{ scale: 1.05, transition: { duration: 0.2}}}
                 >
 
@@ -76,7 +76,7 @@ export const Projects = () => {
             >
                 <motion.div 
                 className="project-image" 
-                style={{backgroundImage:"url('../public/social-media.png')"}}
+                style={{backgroundImage:"url('../social-media.png')"}}
                 whileHover={{ scale: 1.05, transition: { duration: 0.2}}}
                 />
 
@@ -104,7 +104,7 @@ export const Projects = () => {
             >
                 <motion.div 
                 className="project-image" 
-                style={{backgroundImage:"url('../public/stopwatch.png')"}}
+                style={{backgroundImage:"url('../stopwatch.png')"}}
                 whileHover={{ scale: 1.05, transition: { duration: 0.2}}}
                 >
 
