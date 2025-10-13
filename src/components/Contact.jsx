@@ -1,7 +1,6 @@
 import { motion } from "framer-motion";
-import { useState } from "react";
-import  {emailjs} from "@emailjs/browser";
-
+import emailjs from "@emailjs/browser";
+import { useState, useEffect } from "react";
 
 const fadeInUp = {
   initial: { opacity: 0, y: 20 },
@@ -9,15 +8,12 @@ const fadeInUp = {
   transition: { duration: 0.6 },
 };
 
-const staggerContainer = {
-  animate: {
-    transition: {
-      staggerChildren: 0.1,
-    },
-  },
-};
-
 export const Contact = () => {
+  // Initialize EmailJS on component mount
+  useEffect(() => {
+    emailjs.init(import.meta.env.VITE_EMAILJS_PUBLIC_KEY);
+  }, []);
+
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -33,30 +29,20 @@ export const Contact = () => {
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
-    setFormData((prev) => ({
-      ...prev,
-      [name]: value,
-    }));
+    setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
-    setFormStatus({
-      submitting: true,
-      success: false,
-      error: false,
-      message: "",
-    });
+    setFormStatus({ submitting: true, success: false, error: false, message: "" });
 
     try {
-      emailjs.init(import.meta.env.VITE_EMAILJS_PUBLIC_KEY);
       await emailjs.send(
-        import.meta.env.VITE_EMAILJS_SERVICE_ID,
-        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
-        {
-          name: formData.name,
-          email: formData.email,
+        import.meta.env.VITE_EMAILJS_SERVICE_ID,    // Service ID
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,   // Template ID
+        {                                            // Template parameters
+          from_name: formData.name,
+          from_email: formData.email,
           message: formData.message,
         }
       );
@@ -68,13 +54,9 @@ export const Contact = () => {
         message: "Message sent successfully!",
       });
 
-      setFormData({
-        name: "",
-        email: "",
-        message: "",
-      });
+      setFormData({ name: "", email: "", message: "" });
     } catch (error) {
-      console.error(error)
+      console.error("EmailJS Error:", error);
       setFormStatus({
         submitting: false,
         success: false,
@@ -93,12 +75,7 @@ export const Contact = () => {
       viewport={{ once: true }}
       transition={{ duration: 0.6 }}
     >
-      <motion.h2
-        variants={fadeInUp}
-        initial="initial"
-        animate="animate"
-        viewport={{ once: true }}
-      >
+      <motion.h2 variants={fadeInUp} initial="initial" animate="animate" viewport={{ once: true }}>
         Get in Touch
       </motion.h2>
 
@@ -110,23 +87,24 @@ export const Contact = () => {
             placeholder="Your Name..."
             required
             whileFocus={{ scale: 1.02 }}
+            value={formData.name}
             onChange={handleInputChange}
           />
-
           <motion.input
             type="email"
             name="email"
             placeholder="Your Email..."
             required
             whileFocus={{ scale: 1.02 }}
+            value={formData.email}
             onChange={handleInputChange}
           />
-
           <motion.textarea
             name="message"
             placeholder="Your Message..."
             required
             whileFocus={{ scale: 1.02 }}
+            value={formData.message}
             onChange={handleInputChange}
           />
 
@@ -142,9 +120,7 @@ export const Contact = () => {
 
           {formStatus.message && (
             <motion.div
-              className={`form-status ${
-                formStatus.success ? "success" : "error"
-              }`}
+              className={`form-status ${formStatus.success ? "success" : "error"}`}
             >
               {formStatus.message}
             </motion.div>

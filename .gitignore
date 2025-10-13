@@ -22,3 +22,11 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+
+# Keep .env (don't ignore it for development)
+# .env
+# .env.local
+
+# But add this for production/security
+.env*.local

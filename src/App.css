@@ -562,3 +562,11 @@ body{
   border:1px solid rgba(34, 197, 94, 0.2);
   color:#f87171;
 }
+
+.footer {
+  text-align:center;
+  padding:2rem;
+  background:var(--background);
+  color:var(--text-color);
+  border-top:1px solid var(--card-border);
+}
