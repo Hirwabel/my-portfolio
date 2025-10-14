@@ -113,12 +113,12 @@ export const Hero = () => {
                 borderRadius:"20px",
                 background:"rgba(30, 41, 59, 0.8)",
                 backdropFilter: "blur(10px)",
-                marginBottom:50,
+                marginBottom:100,
 
               }}
               >
                 {`const aboutMe: DeveloperProfile = {
-  codename: "PedroTech",
+  codename: "AbelDev",
   origin: "🌍 Somewhere between a coffee shop and a terminal",
   role: "Fullstack Web Sorcerer",
   stack: {

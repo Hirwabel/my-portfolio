@@ -288,6 +288,7 @@ body{
 .code-display{
   width:100%;
   height:500px;
+  margin-bottom: 80px;
 }
 
 /* Hero Media Queries */
@@ -318,6 +319,14 @@ body{
 @media (max-width:768px){
   .hero-image-container{
     display:none;
+  }
+}
+
+
+/* Projects section media-query*/
+@media (min-width: 1024px) {
+  .project-grid {
+    grid-template-columns: repeat(3, 1fr); /* exactly 3 columns */
   }
 }
 
